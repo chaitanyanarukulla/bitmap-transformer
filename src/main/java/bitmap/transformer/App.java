@@ -16,13 +16,9 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-        cli("resources/java_clr_hori.bmp","resources/test.bmp","transform");}
+        cli("resources/java_clr_hori.bmp","resources/test1.bmp","transform");}
 
     public static void cli(String input, String output, String transform){
-        System.out.println(input);
-        System.out.println(output);
-        System.out.println(transform);
-
         BufferedImage out = null;
 
         try{
@@ -33,16 +29,32 @@ public class App {
             System.out.println(e);
         }
 
+        int height = out.getHeight();
+        int width = out.getWidth();
+
+        int rgbMin = 0;
+        int rgbMax = 256;
+        int range = rgbMax - rgbMin + 1;
+
+        for(int x = 0; x < width; x++) {
+            for(int y = 0; y < height; y++) {
+                int pixel = out.getRGB(x, y);
+                pixel = ((int) (Math.random() * range) + rgbMin) |
+                        ((int) (Math.random() * range) + rgbMin) |
+                        ((int) (Math.random() * range) + rgbMin) |
+                        ((int) (Math.random() * range) + rgbMin);
+                out.setRGB(x, y, pixel);
+            }
+        }
+
         try {
             File outputFile = new File(output);
             ImageIO.write(out,"bmp",outputFile );
         }catch(IOException e){
             System.out.println(e);
         }
-
-        }
-
     }
+}
 
 
 
