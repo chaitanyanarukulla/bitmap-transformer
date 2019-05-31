@@ -32,10 +32,18 @@ public class App {
         int height = out.getHeight();
         int width = out.getWidth();
 
+        int rgbMin = 0;
+        int rgbMax = 256;
+        int range = rgbMax - rgbMin + 1;
+
         for(int x = 0; x < width; x++) {
             for(int y = 0; y < height; y++) {
                 int pixel = out.getRGB(x, y);
-                pixel = (Math.random())
+                pixel = ((int) (Math.random() * range) + rgbMin) |
+                        ((int) (Math.random() * range) + rgbMin) |
+                        ((int) (Math.random() * range) + rgbMin) |
+                        ((int) (Math.random() * range) + rgbMin);
+                out.setRGB(x, y, pixel);
             }
         }
 
