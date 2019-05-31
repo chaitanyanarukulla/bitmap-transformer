@@ -19,10 +19,6 @@ public class App {
         cli("resources/java_clr_hori.bmp","resources/test.bmp","transform");}
 
     public static void cli(String input, String output, String transform){
-        System.out.println(input);
-        System.out.println(output);
-        System.out.println(transform);
-
         BufferedImage out = null;
 
         try{
@@ -39,10 +35,8 @@ public class App {
         }catch(IOException e){
             System.out.println(e);
         }
-
-        }
-
     }
+}
 
 
 
