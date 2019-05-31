@@ -3,6 +3,12 @@
  */
 package bitmap.transformer;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class App {
     public String getGreeting() {
         return "Hello world.";
@@ -10,14 +16,34 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-        cli("input","output","transform");}
+        cli("resources/java_clr_hori.bmp","resources/test.bmp","transform");}
 
     public static void cli(String input, String output, String transform){
         System.out.println(input);
         System.out.println(output);
         System.out.println(transform);
 
+        BufferedImage out = null;
+
+        try{
+            File inputFile = new File(input);
+            out = ImageIO.read(inputFile);
+
+        }catch(IOException e){
+            System.out.println(e);
+        }
+
+        try {
+            File outputFile = new File(output);
+            ImageIO.write(out,"bmp",outputFile );
+        }catch(IOException e){
+            System.out.println(e);
+        }
+
+        }
+
     }
-}
+
+
 
 
