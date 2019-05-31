@@ -16,7 +16,7 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-        cli("resources/java_clr_hori.bmp","resources/test.bmp","transform");}
+        cli("resources/java_clr_hori.bmp","resources/test1.bmp","transform");}
 
     public static void cli(String input, String output, String transform){
         BufferedImage out = null;
