@@ -29,6 +29,16 @@ public class App {
             System.out.println(e);
         }
 
+        int height = out.getHeight();
+        int width = out.getWidth();
+
+        for(int x = 0; x < width; x++) {
+            for(int y = 0; y < height; y++) {
+                int pixel = out.getRGB(x, y);
+                pixel = (Math.random())
+            }
+        }
+
         try {
             File outputFile = new File(output);
             ImageIO.write(out,"bmp",outputFile );
